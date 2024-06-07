@@ -233,3 +233,29 @@ drop column CustomerContact;
 select * from Customer;
 
 drop table Customer;
+
+-- Procedure 
+DELIMITER // 
+create procedure getAllCustomer()
+BEGIN
+	select * from Customer;
+END // 
+DELIMITER ;
+
+call getAllCustomer();
+
+
+-- Parameterized Procedure 
+DELIMITER // 
+create procedure getSalesOfficeEmployees(SalesOfficeId int)
+BEGIN
+	select * from SalesStaffInformation 
+    where SalesOffice = SalesOfficeId;
+END // 
+DELIMITER ;
+
+call getSalesOfficeEmployees(102);
+
+
+
+
