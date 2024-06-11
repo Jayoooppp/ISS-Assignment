@@ -78,7 +78,11 @@ const validateInputs = (formType = "login") => {
         if (name.value.trim() === "" || email.value.trim() === "" || password.value.trim() === "" || cpassword.value.trim() === "") {
             alert("Please fill in all fields");
             return false;
-        } else if (password.value !== cpassword.value) {
+        } else if (password.value.length < 8) {
+            alert("Password must be at least 8 characters");
+            return false;
+        }
+        else if (password.value !== cpassword.value) {
             setError(password, "Passwords do not match");
             alert("Passwords do not match");
             return false;
