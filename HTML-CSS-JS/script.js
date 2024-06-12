@@ -41,7 +41,6 @@ const signupForm = document.querySelector('#signupForm')
 // Login button event listener
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log("Login button clicked")
     if (validateInputs("login")) {
         // redirect to home.html 
         document.location.href = "home.html"
@@ -51,7 +50,6 @@ loginForm.addEventListener('submit', (e) => {
 // Signup button event listener
 signupForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log("Signup button clicked")
     if (validateInputs("signup")) {
         // redirect to home.html 
         document.location.href = "home.html"
@@ -60,6 +58,8 @@ signupForm.addEventListener('submit', (e) => {
 
 //  Function to validate the user inputs
 const validateInputs = (formType = "login") => {
+
+    // Login input validation
     if (formType === "login") {
         const email = document.querySelector('#email');
         const password = document.querySelector('#password');
@@ -71,6 +71,7 @@ const validateInputs = (formType = "login") => {
             return true;
         }
     } else {
+        // Signup input validation
         const name = document.querySelector('#name');
         const email = document.querySelector('#s-email');
         const password = document.querySelector('#s-password');
@@ -83,7 +84,6 @@ const validateInputs = (formType = "login") => {
             return false;
         }
         else if (password.value !== cpassword.value) {
-            setError(password, "Passwords do not match");
             alert("Passwords do not match");
             return false;
         } else {
