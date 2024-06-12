@@ -46,7 +46,6 @@ try {
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
 			
-			System.out.println(name + email + password);
 			
 			String query = "INSERT INTO user(name,email,password) values(?,?,?)";
 			
